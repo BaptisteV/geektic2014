@@ -32,6 +32,3 @@ id_geek bigint not null,
 foreign key (id_hobby) references hobby(id_hobby),
 foreign key (id_geek) references geek(id_geek)
 );
-
-create sequence geek_seq start with 0;
-create sequence hobby_seq start with 0;
