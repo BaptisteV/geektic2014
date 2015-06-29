@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.tables;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class Geek implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="ID_GEEK")
 	private long id_geek;
 
 	private String name;

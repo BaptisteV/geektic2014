@@ -27,4 +27,5 @@ public class SearchGeekService {
 	public List<Hobby> getAllHobbies(){
 		return dao.getAllHobbies();
 	}
+	
 }

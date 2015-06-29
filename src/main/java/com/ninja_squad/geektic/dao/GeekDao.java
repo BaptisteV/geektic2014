@@ -29,13 +29,13 @@ public class GeekDao {
 	*/
 	
 	public List<Geek> findByGender(Gender gender){
-		TypedQuery<Geek> requestByGender =  em.createQuery("select g from Geek g where g.gender = :gender", Geek.class);
+		TypedQuery<Geek> requestByGender =  em.createQuery("SELECT g FROM Geek g WHERE g.gender = :gender", Geek.class);
 		requestByGender.setParameter("gender", gender);
 		return requestByGender.getResultList();
 	}
 	
 	public List<Hobby> getAllHobbies(){
-		TypedQuery<Hobby> requestAllHobbies =  em.createQuery("select h from Hobby h", Hobby.class);
+		TypedQuery<Hobby> requestAllHobbies =  em.createQuery("SELECT h FROM Hobby h", Hobby.class);
 		return requestAllHobbies.getResultList();
 	}
 
