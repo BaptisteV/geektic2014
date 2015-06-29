@@ -28,7 +28,7 @@ primary key (id_hobby)
 create table geek_hobby
 (
 id_hobby bigint not null,
-id_geek int not null,
+id_geek bigint not null,
 foreign key (id_hobby) references hobby(id_hobby),
 foreign key (id_geek) references geek(id_geek)
 );
