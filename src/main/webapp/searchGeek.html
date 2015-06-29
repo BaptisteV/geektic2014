@@ -1,0 +1,12 @@
+<h3>#define WHAT_YOU_WANT</h3>
+
+<form>
+ Sexe : <br>
+ <select>
+  <option value=""> </option> 
+  <option value="F">Femme</option>
+  <option value="M">Homme</option>
+</select><br>
+ Centre d'interet : <br>
+ <select ng-options = "hobby as (hobby.title + ' ' + hobby.detail) for hobby in hobbies" ng-model = "selectedHobby"></select><br>
+</form>
