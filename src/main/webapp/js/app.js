@@ -5,3 +5,9 @@ app.controller('HelloCtrl', function($scope, $http) {
         $scope.helloMessage = helloMessage;
     });
 });
+/*
+app.config(function ($routeProvider){
+	$routeProvider.when('/');
+	controller : 'ButtonCtrl';
+});
+*/
