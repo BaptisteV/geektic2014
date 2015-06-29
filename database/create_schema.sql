@@ -11,6 +11,7 @@ id_geek bigint not null,
 name varchar(100) not null,
 surname varchar(100) not null,
 aka varchar(200),
+gender varchar(1),
 city varchar(200) not null,
 email varchar (200) not null,
 primary key (id_geek)
