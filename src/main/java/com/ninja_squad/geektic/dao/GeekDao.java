@@ -22,11 +22,6 @@ public class GeekDao {
 	// find by gender
 	// find by hobbit
 	// le service se charge de trouver l'intersection
-	/*
-	public GeekDao(EntityManager entityManager){
-		this.em = entityManager;
-	}
-	*/
 	
 	public List<Geek> findByGender(Gender gender){
 		TypedQuery<Geek> requestByGender =  em.createQuery("SELECT g FROM Geek g WHERE g.gender = :gender", Geek.class);
@@ -37,6 +32,12 @@ public class GeekDao {
 	public List<Hobby> getAllHobbies(){
 		TypedQuery<Hobby> requestAllHobbies =  em.createQuery("SELECT h FROM Hobby h", Hobby.class);
 		return requestAllHobbies.getResultList();
+	}
+	
+	public List<Geek> findByHobby(String hobby){
+		TypedQuery<Geek> requestByHobby =  em.createQuery("SELECT geek FROM Geek geek INNER JOIN geek.hobbies i WHERE i.title = :title", Geek.class);
+		requestByHobby.setParameter("title", hobby);
+		return requestByHobby.getResultList();
 	}
 
 }

@@ -1,12 +1,14 @@
 <h3>#define WHAT_YOU_WANT</h3>
 
-<form>
+<form method="GET" ng-submit = "search(selectedGender, selectedHobby.title)">
  Sexe : <br>
- <select>
+ <select ng-model = "selectedGender">
   <option value=""> </option> 
   <option value="F">Femme</option>
   <option value="M">Homme</option>
 </select><br>
  Centre d'interet : <br>
  <select ng-options = "hobby as (hobby.title + ' ' + hobby.detail) for hobby in hobbies" ng-model = "selectedHobby"></select><br>
+ <br>
+ <input type="submit" value="5h0w r35ul75">
 </form>

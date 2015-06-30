@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-// @DiscriminatorColumn(name = "ID_HOBBY")
 public class Hobby {
 	@Id
 	@Column(name = "ID_HOBBY")

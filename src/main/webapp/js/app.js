@@ -8,9 +8,18 @@ app.controller('HelloCtrl', function($scope, $http) {
 });
 */
 
-app.controller('SearchCtrl', function($scope, $http){
+app.controller('SearchCtrl', function($scope, $http, $location){
 	$http.get('/api/hobbies').success(function(hobbies){
 		$scope.hobbies = hobbies;
+	});
+	$scope.search = function(selectedGender, selectedHobby){
+		$location.url("/result?hobby=" + selectedHobby + "&gender=" + selectedGender)
+	}
+});
+
+app.controller('ResultCtrl', function($scope, $http, $routeParams){
+	$http.get('/api/result', {params: $routeParams}).success(function(geeks){
+		$scope.geeks = geeks;
 	});
 });
 
@@ -21,7 +30,6 @@ app.config(function ($routeProvider){
 	});
 });
 
-
 app.config(function ($routeProvider){
 	$routeProvider.when('/search', {
 		templateUrl : 'searchGeek.html',
@@ -29,4 +37,10 @@ app.config(function ($routeProvider){
 	});
 });
 
+app.config(function ($routeProvider){
+	$routeProvider.when('/result', {
+		templateUrl : 'geekList.html',
+		controller : 'ResultCtrl'
+	});
+});
 
