@@ -13,7 +13,15 @@ app.controller('SearchCtrl', function($scope, $http, $location){
 		$scope.hobbies = hobbies;
 	});
 	$scope.search = function(selectedGender, selectedHobby){
-		$location.url("/result?hobby=" + selectedHobby + "&gender=" + selectedGender)
+		var tab=[];
+		if(selectedGender){
+			tab.push("gender=" + selectedGender);
+		}
+		if(selectedHobby){
+			tab.push("hobby=" + selectedHobby);
+		}
+		
+		$location.url("/result?" + tab.join("&"))
 	}
 });
 
@@ -28,16 +36,10 @@ app.config(function ($routeProvider){
 	$routeProvider.when('/', {
 		templateUrl : 'chercher.html'
 	});
-});
-
-app.config(function ($routeProvider){
 	$routeProvider.when('/search', {
 		templateUrl : 'searchGeek.html',
 		controller : 'SearchCtrl'
 	});
-});
-
-app.config(function ($routeProvider){
 	$routeProvider.when('/result', {
 		templateUrl : 'geekList.html',
 		controller : 'ResultCtrl'

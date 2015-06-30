@@ -35,20 +35,20 @@ public class SearchGeekService {
 				+ selectedGender);
 		List<Geek> matchingGeek;
 		// Si les deux critères sont renseignés
-		if ((selectedGender != null) && (!selectedHobby.isEmpty())) {
+		if ((selectedGender != null) && (selectedHobby!=null)) {
 			List<Geek> matchingGenderGeek = dao.findByGender(selectedGender);
 			matchingGeek = dao.findByHobby(selectedHobby);
 			matchingGeek.retainAll(matchingGenderGeek);
 		}
-		// Si on ne renseigne que le sexe
 		else if (selectedGender != null) {
+			// Si on ne renseigne que le sexe
 			matchingGeek = dao.findByGender(selectedGender);
 		} else {
+			// Si on ne renseigne que le hobby
 			matchingGeek = dao.findByHobby(selectedHobby);
 		}
 
 		System.out.println(matchingGeek.size() + " résultat");
-		System.out.println(matchingGeek.get(0).getName());
 		return matchingGeek;
 	}
 }
